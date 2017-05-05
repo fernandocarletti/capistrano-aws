@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    capistrano-aws (0.0.1)
+    capistrano-aws (1.0.0)
       aws-sdk (~> 2.9)
       colorize (~> 0.8)
       terminal-table (~> 1.7)
