@@ -7,7 +7,7 @@ module Capistrano
       end
 
       def aws_ec2_register(options = {})
-        aws_ec2.instances.each do |instance|
+        aws_ec2.instances.each do |_id, instance|
           ip = Capistrano::Aws::EC2.contact_point(instance)
           roles = Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_roles_tag)).split(',')
 

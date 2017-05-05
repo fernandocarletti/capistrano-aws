@@ -22,7 +22,7 @@ module Capistrano
           table.add_row header_row
 
           number = 1
-          @instances.each do |instance|
+          @instances.each do |_id, instance|
             table.add_row instance_row(number, instance)
             number += 1
           end

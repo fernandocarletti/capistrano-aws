@@ -25,7 +25,7 @@ module Capistrano
           application = fetch(:aws_ec2_application)
           raise 'application not set.' if application.nil?
 
-          instances = []
+          instances = {}
 
           filters = [
             {
@@ -44,7 +44,7 @@ module Capistrano
 
           @ec2.each do |_region, client|
             client.instances(filters: filters).each do |instance|
-              instances << instance
+              instances[instance.id] = instance
             end
           end
 
