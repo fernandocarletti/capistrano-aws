@@ -4,6 +4,9 @@ set :aws_ec2_regions, ['us-east-1']
 # Application name to match application tag.
 set :aws_ec2_application, (proc { fetch(:application) })
 
+# Stage to match stage tag.
+set :aws_ec2_stage, (proc { fetch(:stage) })
+
 # Tag to be used for Capistrano stage.
 set :aws_ec2_stage_tag, 'Stage'
 

@@ -34,7 +34,7 @@ module Capistrano
             },
             {
               name: "tag:#{fetch(:aws_ec2_stage_tag)}",
-              values: [fetch(:stage)]
+              values: [fetch(:aws_ec2_stage)]
             },
             {
               name: 'instance-state-name',
