@@ -47,6 +47,9 @@ set :aws_ec2_application_tag, 'Application'
 # Tag to be used for Capistrano roles of the server (the tag value can be a comma separated list).
 set :aws_ec2_roles_tag, 'Roles'
 
+# Extra filters to be used to retrieve the instances. See the README.md for more information.
+set :aws_ec2_extra_filters, []
+
 # Tag to be used as the instance name in the instances table (aws:ec2:instances task).
 set :aws_ec2_name_tag, 'Name'
 
@@ -69,6 +72,46 @@ It will use the instance tags to call the `server` function in capistrano. You c
 ```ruby
 aws_ec2_register user: 'hello', port: 2222
 ```
+
+## Custom EC2 Filters
+
+If you need to identify the instances based on more information, you can specify extra filters to be used in the `filters` option in the [Aws::EC2::Resource.instances](https://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Resource.html#instances-instance_method) call.
+
+Imagine you have some split test servers for your production environment, so you can use another tag for specifying the variation of some servers:
+
+| Name      | Application | Environment | Roles  | SplitTestVariation |
+|-----------|-------------|-------------|--------|--------------------|
+| foo-app01 | foo-app     | production  | app,db | 0                  |
+| foo-app02 | foo-app     | production  | app    | 0                  |
+| foo-app03 | foo-app     | production  | app    | 1                  |
+| foo-app04 | foo-app     | production  | app    | 1                  |
+
+In your environment files:
+
+```ruby
+# production.rb
+
+set :aws_ec2_extra_filters, [
+  {
+    name: "tag:SplitTestVariation",
+    values: ["0"],
+  },
+]
+```
+
+```ruby
+# production-b.rb
+
+set :aws_ec2_stage, "production" # Optional. Use if you have the same environment for the B servers.
+set :aws_ec2_extra_filters, [
+  {
+    name: "tag:SplitTestVariation",
+    values: ["1"],
+  },
+]
+```
+
+The `:aws_ec2_stage` variable is needed in order to override the default value of the stage fielter(`:stage`). If you really have a different environment for your `B` servers, you can just use the name of the environment as the file name and remove this line.
 
 # Utility tasks
 

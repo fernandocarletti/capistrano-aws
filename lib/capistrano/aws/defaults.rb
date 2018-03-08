@@ -16,6 +16,9 @@ set :aws_ec2_application_tag, 'Application'
 # Tag to be used for Capistrano roles of the server (the tag value can be a comma separated list).
 set :aws_ec2_roles_tag, 'Roles'
 
+# Extra filters to be used to retrieve the instances. See the README.md for more information.
+set :aws_ec2_extra_filters, []
+
 # Tag to be used as the instance name in the instances table (aws:ec2:instances task).
 set :aws_ec2_name_tag, 'Name'
 

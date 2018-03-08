@@ -42,6 +42,8 @@ module Capistrano
             }
           ]
 
+          filters.concat fetch(:aws_ec2_extra_filters)
+
           @ec2.each do |_region, client|
             client.instances(filters: filters).each do |instance|
               instances[instance.id] = instance
