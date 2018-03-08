@@ -41,7 +41,7 @@ set :aws_ec2_stage_tag, 'Stage'
 # Tag to be used to match the application.
 set :aws_ec2_application_tag, 'Application'
 
-# Tag to be used for Capistrano roles of the server (comma separated list).
+# Tag to be used for Capistrano roles of the server (the tag value can be a comma separated list).
 set :aws_ec2_roles_tag, 'Roles'
 
 # Tag to be used as the instance name in the instances table (aws:ec2:instances task).
