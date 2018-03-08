@@ -13,5 +13,8 @@ set :aws_ec2_application_tag, 'Application'
 # Tag to be used for Capistrano roles of the server (comma separated list).
 set :aws_ec2_roles_tag, 'Roles'
 
+# Tag to be used as the instance name in the instances table (aws:ec2:instances task).
+set :aws_ec2_name_tag, 'Name'
+
 # How to contact the instance (:public_ip, :public_dns, :private_ip).
 set :aws_ec2_contact_point, :public_ip

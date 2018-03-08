@@ -7,7 +7,9 @@ module Capistrano
       # Generates instances table.
       class InstancesTable
         def initialize(instances)
-          @instances = instances
+          @instances = instances.sort_by do |_id, instance|
+            Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_name_tag))
+          end
         end
 
         def render
@@ -47,7 +49,7 @@ module Capistrano
           [
             format('%02d:', number),
             instance.id.colorize(:red),
-            Capistrano::Aws::EC2.parse_tag(instance, 'Name').colorize(:green),
+            Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_name_tag)).colorize(:green),
             instance.instance_type.colorize(:cyan),
             Capistrano::Aws::EC2.contact_point(instance).colorize(:blue),
             instance.placement.availability_zone.colorize(:magenta),
