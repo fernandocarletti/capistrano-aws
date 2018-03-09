@@ -6,7 +6,6 @@
 * Removed Gemfile.lock.
 * Order instances by name in the instances table.
 
-
 2017-05-05 - 1.0.1 - Improved instances access
 
 * Turn instances result into a hash, being able to access the instance by its id.
