@@ -5,10 +5,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name = 'capistrano-aws'
-  gem.version = '1.0.1'
+  gem.version = '1.1.0'
   gem.author = 'Fernando Carletti'
   gem.email = 'contact@fernandocarletti.net'
-  gem.homepage = 'http://github.com/xurumelous/capistrano-aws'
+  gem.homepage = 'http://github.com/fernandocarletti/capistrano-aws'
   gem.summary = 'Integrates capistrano with AWS.'
   gem.description = 'Allow dynamically add servers based on EC2.'
 
@@ -25,5 +25,5 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'terminal-table', '~>1.7'
   gem.add_dependency 'colorize', '~>0.8'
 
-  gem.add_development_dependency 'rubocop', '~>0.48'
+  gem.add_development_dependency 'rubocop', '~>0.53'
 end
