@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name = 'capistrano-aws'
-  gem.version = '1.1.0'
+  gem.version = '1.2.0'
   gem.author = 'Fernando Carletti'
   gem.email = 'contact@fernandocarletti.net'
   gem.homepage = 'http://github.com/fernandocarletti/capistrano-aws'
