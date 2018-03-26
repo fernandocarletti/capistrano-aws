@@ -1,5 +1,5 @@
 require 'singleton'
-require 'aws-sdk'
+require 'aws-sdk-ec2'
 
 module Capistrano
   module Aws
