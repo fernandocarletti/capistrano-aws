@@ -21,6 +21,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 2.0'
 
+  gem.add_dependency 'capistrano', '~> 3.1'
   gem.add_dependency 'aws-sdk-ec2', '~> 1'
   gem.add_dependency 'terminal-table', '~> 1.7'
   gem.add_dependency 'colorize', '~> 0.8'
