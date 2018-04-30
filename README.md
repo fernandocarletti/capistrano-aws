@@ -18,7 +18,7 @@ gem 'capistrano-aws'
 
 Or install the gem system-wide:
 ```bash
-gem install cap-ec2
+gem install capistrano-aws
 ```
 
 In your `Capfile`:
