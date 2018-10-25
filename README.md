@@ -63,6 +63,7 @@ The AWS credentials are loaded from your system. Check https://github.com/aws/aw
 
 The instances must be registered in each stage. In your `config/deploy/<stage_name>.rb`, add the following line:
 
+*This must be placed after you have configured your AWS settings*
 ```ruby
 aws_ec2_register
 ```
