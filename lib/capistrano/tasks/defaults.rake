@@ -18,6 +18,24 @@ namespace :load do
     # Tag to be used for Capistrano roles of the server (the tag value can be a comma separated list).
     set :aws_ec2_roles_tag, 'Roles'
 
+    # Default filters used for all requests, set to an empty array [] to disable completely
+    set :aws_ec2_default_filters, (proc {
+      [
+        {
+          name: "tag:#{fetch(:aws_ec2_application_tag)}",
+          values: [fetch(:aws_ec2_application)]
+        },
+        {
+          name: "tag:#{fetch(:aws_ec2_stage_tag)}",
+          values: [fetch(:aws_ec2_stage)]
+        },
+        {
+          name: 'instance-state-name',
+          values: ['running']
+        }
+      ]
+    })
+
     # Extra filters to be used to retrieve the instances. See the README.md for more information.
     set :aws_ec2_extra_filters, []
 

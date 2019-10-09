@@ -22,25 +22,9 @@ module Capistrano
         end
 
         def instances
-          application = fetch(:aws_ec2_application)
-          raise 'application not set.' if application.nil?
-
           instances = {}
 
-          filters = [
-            {
-              name: "tag:#{fetch(:aws_ec2_application_tag)}",
-              values: [fetch(:aws_ec2_application)]
-            },
-            {
-              name: "tag:#{fetch(:aws_ec2_stage_tag)}",
-              values: [fetch(:aws_ec2_stage)]
-            },
-            {
-              name: 'instance-state-name',
-              values: ['running']
-            }
-          ]
+          filters = fetch(:aws_ec2_default_filters)
 
           filters.concat fetch(:aws_ec2_extra_filters)
 
