@@ -42,6 +42,10 @@ module Capistrano
         case fetch(:aws_ec2_contact_point)
         when :private_ip
           instance.private_ip_address
+        when :private_dns
+          instance.private_dns_name
+        when :id
+          instance.id
         when :public_dns
           instance.public_dns_name
         else
