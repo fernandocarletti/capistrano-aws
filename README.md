@@ -53,7 +53,7 @@ set :aws_ec2_extra_filters, []
 # Tag to be used as the instance name in the instances table (aws:ec2:instances task).
 set :aws_ec2_name_tag, 'Name'
 
-# How to contact the instance (:public_ip, :public_dns, :private_ip).
+# How to contact the instance (:public_ip, :public_dns, :private_ip, :private_dns, :id).
 set :aws_ec2_contact_point, :public_ip
 ```
 
