@@ -1,3 +1,7 @@
+2020-04-22 - 1.2.2 - Extra EC2 contact point
+
+* Added extra EC2 contact point with instance id and private DNS (for SSM usage)
+
 2018-03-08 - 1.1.0 - Custom filters
 
 * Support extra filters for retrieving EC2 instances.
