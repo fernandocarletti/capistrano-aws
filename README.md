@@ -1,15 +1,14 @@
-Capistrano AWS
-==============
+# Capistrano AWS [![Gem Version](https://badge.fury.io/rb/capistrano-aws.svg)](https://badge.fury.io/rb/capistrano-aws)
 
 This gem is slightly based on [cap-ec2](https://github.com/forward3d/cap-ec2), which is not maintained for a while, becoming outdated.
 
 The purpose of this gem is to provide a flexible and simple integration to AWS EC2, exposing the aws-sdk connection in order to allow any customization.
 
-# Requirements
+## Requirements
 
 * Capistrano 3
 
-# Installation
+## Installation
 
 Add to your `Gemfile` and run `bundler`:
 ```ruby
@@ -26,7 +25,7 @@ In your `Capfile`:
 require 'capistrano/aws'
 ```
 
-# Configuration
+## Configuration
 
 ```ruby
 # AWS regions to use.
@@ -59,7 +58,7 @@ set :aws_ec2_contact_point, :public_ip
 
 The AWS credentials are loaded from your system. Check https://github.com/aws/aws-sdk-ruby#configuration for more information.
 
-# Usage
+## Usage
 
 The instances must be registered in each stage. In your `config/deploy/<stage_name>.rb`, add the following line:
 
@@ -74,7 +73,7 @@ It will use the instance tags to call the `server` function in capistrano. You c
 aws_ec2_register user: 'hello', port: 2222
 ```
 
-## Custom EC2 Filters
+### Custom EC2 Filters
 
 If you need to identify the instances based on more information, you can specify extra filters to be used in the `filters` option in the [Aws::EC2::Resource.instances](https://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Resource.html#instances-instance_method) call.
 
@@ -114,9 +113,9 @@ set :aws_ec2_extra_filters, [
 
 The `:aws_ec2_stage` variable is needed in order to override the default value of the stage fielter(`:stage`). If you really have a different environment for your `B` servers, you can just use the name of the environment as the file name and remove this line.
 
-# Utility tasks
+## Utility tasks
 
-## aws:ec2:instances
+### aws:ec2:instances
 
 List all the instances found for with the current configuration.
 
@@ -124,6 +123,6 @@ List all the instances found for with the current configuration.
 cap production aws:ec2:instances
 ```
 
-# Contributing
+## Contributing
 
 Open an issue or make a PR, feel free to contribute!
