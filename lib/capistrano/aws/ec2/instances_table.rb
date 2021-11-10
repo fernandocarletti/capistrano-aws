@@ -1,5 +1,5 @@
 require 'terminal-table'
-require 'colorize'
+require 'rainbow'
 
 module Capistrano
   module Aws
@@ -34,27 +34,27 @@ module Capistrano
 
         def header_row
           [
-            'Num'.colorize(mode: :bold),
-            'ID'.colorize(mode: :bold),
-            'Name'.colorize(mode: :bold),
-            'Type'.colorize(mode: :bold),
-            'Contact Point'.colorize(mode: :bold),
-            'Availability Zone'.colorize(mode: :bold),
-            'Roles'.colorize(mode: :bold),
-            'Stages'.colorize(mode: :bold)
+            Rainbow('Num').bright,
+            Rainbow('ID').bright,
+            Rainbow('Name').bright,
+            Rainbow('Type').bright,
+            Rainbow('Contact Point').bright,
+            Rainbow('Availability Zone').bright,
+            Rainbow('Roles').bright,
+            Rainbow('Stages').bright
           ]
         end
 
         def instance_row(number, instance)
           [
             format('%02d:', number),
-            instance.id.colorize(:red),
-            Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_name_tag)).colorize(:green),
-            instance.instance_type.colorize(:cyan),
-            Capistrano::Aws::EC2.contact_point(instance).colorize(:blue),
-            instance.placement.availability_zone.colorize(:magenta),
-            Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_roles_tag)).colorize(:yellow),
-            Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_stage_tag)).colorize(:yellow)
+            Rainbow(instance.id).red,
+            Rainbow(Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_name_tag))).green,
+            Rainbow(instance.instance_type).cyan,
+            Rainbow(Capistrano::Aws::EC2.contact_point(instance)).blue,
+            Rainbow(instance.placement.availability_zone).magenta,
+            Rainbow(Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_roles_tag))).yellow,
+            Rainbow(Capistrano::Aws::EC2.parse_tag(instance, fetch(:aws_ec2_stage_tag))).yellow
           ]
         end
       end
