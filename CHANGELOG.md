@@ -1,3 +1,7 @@
+2021-11-10 - 1.3.0 - Fix License!
+
+* Move from colorize to rainbow due to license incompatibiliy (Thanks @andyspix!)
+
 2020-04-22 - 1.2.2 - Extra EC2 contact point
 
 * Added extra EC2 contact point with instance id and private DNS (for SSM usage)
