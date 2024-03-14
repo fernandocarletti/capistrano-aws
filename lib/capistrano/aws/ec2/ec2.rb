@@ -48,6 +48,8 @@ module Capistrano
           instance.id
         when :public_dns
           instance.public_dns_name
+        when :ipv_6_address
+          "[#{instance.ipv_6_address}]"
         else
           instance.public_ip_address
         end
