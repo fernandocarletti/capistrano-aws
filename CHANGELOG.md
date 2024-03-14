@@ -1,3 +1,7 @@
+2024-03-14 - 1.4.0 - Support IPV6
+
+* Support :ipv_6_address on aws_ec2_contact_point (Thanks @jksy!)
+
 2021-11-10 - 1.3.0 - Fix License!
 
 * Move from colorize to rainbow due to license incompatibiliy (Thanks @andyspix!)
